@@ -1,15 +1,26 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+gem 'sass'
+gem 'jquery-rails'
+gem "swf_fu", "~> 2.0"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem "mysql2", "~> 0.3.11"
+gem "mysql"
+gem "sequel"
+gem "haml-rails"
 
+# gem 'tiny_tds'                          !!!!!!= when pushing to heroku remove this
+# gem 'activerecord-sqlserver-adapter'
 
 # Gems used only for assets and not required
 # in production environments by default.
+gem 'coffee-script'
+gem 'liquid'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -20,7 +31,18 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+  gem "capybara"
+  gem "sqlite3-ruby" 
+  # "sqlite3", "~> 1.3.0", :require => "sqlite3"
+end
+
+group :production, :staging do
+  # gem 'therubyracer-heroku', '0.8.1.pre3'
+  gem "pg"
+end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -35,4 +57,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :development do
+  gem 'debugger'
+end
+
