@@ -5,6 +5,9 @@ gem 'sass'
 gem 'jquery-rails'
 gem "swf_fu", "~> 2.0"
 
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
